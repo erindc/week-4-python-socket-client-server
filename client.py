@@ -5,7 +5,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     while True:
         msg = input('Input something to send to the server (exit to quit): ').encode()
         s.sendall(msg)
-        if msg.decode("utf-8") == 'exit':
+        if msg == b'exit':
             break
         data = s.recv(1024)
         print('Server response: ', data.decode("utf-8") )
